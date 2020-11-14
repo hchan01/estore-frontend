@@ -1,0 +1,22 @@
+@import "../../css/variables.scss";
+
+.main-header {
+    background-color: $color-grey-dark;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    font-size: 0.875rem;
+    color: $color-grey-light;
+    border-top: 4px solid #1498d5;
+
+    & .logo {
+        width: 150px;
+    }
+
+    & .nav-link {
+        color: $color-grey-light !important;
+
+        &:hover {
+            color: $color-white !important;
+        }
+    }
+}

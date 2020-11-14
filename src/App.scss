@@ -1,0 +1,73 @@
+@import "./css/typography.scss";
+@import "./css/variables.scss";
+
+/*--------------------------------------------------------------
+>>> Global Styles
+--------------------------------------------------------------*/
+
+html {
+    font-size: 16px;
+}
+
+body {
+    height: 100%;
+    position: relative;
+    color: $color-black;
+    font-family: 'Roboto', sans-serif;
+}
+
+#root {
+    min-height: 100vh;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    padding-bottom: 850px;
+
+    @media (min-width: 576px) {
+        padding-bottom: 555px;
+    }
+
+    @media (min-width: 768px) {
+        padding-bottom: 450px;
+    }
+}
+
+
+
+
+.search-bar__overlay {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 5;
+    opacity: 0;
+    background-color: rgba(0,0,0,.5);
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+
+    &--active {
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+
+
+
+.slogan {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    color: $color-white;
+}
+
+.spinner {
+	position: absolute;
+	left: 50%;
+	top: calc(50% - 100px);
+    transform: translate(-50%, -50%);
+}

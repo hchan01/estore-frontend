@@ -1,0 +1,9 @@
+@import "../../css/variables.scss";
+
+.console {
+    padding: 10px;
+    background-color: $color-yellow-light;
+    color: #333;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.75rem;
+}
