@@ -6,17 +6,15 @@
     border: 0px;
     padding: 10px 30px;
     margin-top: 15px;
-    background: #2196f3;
+    background: $color-grey;
     border-radius: 30px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: 0.5s;
-    top: 200px;
-    opacity: 1;
     outline: none !important;
 
     &:hover {
         color: $color-white;
+        background: $color-blue;
         text-decoration: none;
     }
 }
