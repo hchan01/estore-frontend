@@ -13,29 +13,29 @@ const Header = () => {
     const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
 
     return (
-        <header className="main-header">
-            <Navbar expand="lg" variant="dark">
-                <Navbar.Brand as={NavLink} exact to={'/'}><img src={logo} className="logo" alt="FusionTech" /></Navbar.Brand>
+        <header className="header">
+            <Navbar expand="lg" variant="dark" className="header__navbar">
+                <Navbar.Brand as={NavLink} exact to={'/'}><img src={logo} className="header__logo" alt="FusionTech" /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto pl-0 pl-sm-4">
-                        <Nav.Link as={NavLink} exact to="/category/1" activeClassName="active">Headphones</Nav.Link>
-                        <Nav.Link as={NavLink} exact to="/category/2" activeClassName="active">Gaming Consoles</Nav.Link>
+                        <Nav.Link as={NavLink} exact to="/category/1" className="header__nav-link" activeClassName="active">Headphones</Nav.Link>
+                        <Nav.Link as={NavLink} exact to="/category/2" className="header__nav-link" activeClassName="active">Gaming Consoles</Nav.Link>
                     </Nav>
                     <Nav>
                         <SearchBar />
                         {
                             isLoggedIn
                             ?
-                            <Nav.Link as={NavLink} exact to={ { pathname: '/sign-in', state: { prevPath: window.location.pathname } } } className="pl-0 pl-sm-4" activeClassName="active">
+                            <Nav.Link as={NavLink} exact to={ { pathname: '/account', state: { prevPath: window.location.pathname } } } className="pl-0 pl-sm-4" className="header__nav-link" activeClassName="active">
                                 <FontAwesomeIcon icon={faUser} />
                             </Nav.Link>
                             :
-                            <Nav.Link as={NavLink} exact to={ { pathname: '/sign-in', state: { prevPath: window.location.pathname } } } className="pl-0 pl-sm-4" activeClassName="active">
+                            <Nav.Link as={NavLink} exact to={ { pathname: '/sign-in', state: { prevPath: window.location.pathname } } } className="pl-0 pl-sm-4" className="header__nav-link" activeClassName="active">
                                 <FontAwesomeIcon icon={faUser} /> Account
                             </Nav.Link>
                         }
-                        <Nav.Link as={NavLink} exact to="/cart" className="nav-item nav-link" activeClassName="active">
+                        <Nav.Link as={NavLink} exact to="/cart" className="nav-item nav-link" className="header__nav-link" activeClassName="active">
                             <FontAwesomeIcon icon={faShoppingCart} /> Cart
                         </Nav.Link>
                     </Nav>
