@@ -1,6 +1,6 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-import { PaymentMethods, Testimonials } from '../components';
+import { Testimonials } from '../components';
 
 const HomeScreen = () => (
     <React.Fragment>
@@ -25,11 +25,6 @@ const HomeScreen = () => (
         </div>
         <div className="container">
             <Testimonials />
-        </div>
-        <div className="container-fluid">
-            <div className="row">
-                <PaymentMethods />
-            </div>
         </div>
     </React.Fragment>
 )
