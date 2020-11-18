@@ -11,7 +11,6 @@ function App() {
     return (
         <BrowserRouter>
             <Console />
-            <div className="search-bar__overlay"></div>
             <Header />
             <Routes />
             <Footer />
