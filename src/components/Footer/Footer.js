@@ -1,10 +1,10 @@
 import React from 'react';
-import './styles.scss';
+import './Footer.scss';
 import { NavLink } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 import { PaymentMethodsBlock, SocialButtonsBlock } from '..';
 
-const Footer = () => (
+export const Footer = () => (
     <footer className="footer">
         <div className="container">
             <div className="row no-gutters">
@@ -49,5 +49,3 @@ const Footer = () => (
         </div>
     </footer>
 )
-
-export default Footer;

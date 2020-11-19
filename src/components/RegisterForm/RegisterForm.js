@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.scss';
+import './RegisterForm.scss';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useDispatch } from 'react-redux';
@@ -18,7 +18,7 @@ const schema = yup.object({
         .required('Please confirm your password')
 });
 
-const RegisterForm = () => {
+export const RegisterForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -101,5 +101,3 @@ const RegisterForm = () => {
         </div>
     )
 }
-
-export default RegisterForm;

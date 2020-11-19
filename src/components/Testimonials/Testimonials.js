@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import './styles.scss';
+import './Testimonials.scss';
 import 'swiper/components/effect-coverflow/effect-coverflow.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, EffectCoverflow, Autoplay } from 'swiper';
@@ -8,7 +8,7 @@ import 'swiper/components/navigation/navigation.scss';
 
 SwiperCore.use([EffectCoverflow, Autoplay, Navigation]);
 
-const Testimonials = () => {
+export const Testimonials = () => {
     useEffect(() => {
         // const swiper = new Swiper('.swiper-container', {
         //     effect: 'coverflow',
@@ -150,5 +150,3 @@ const Testimonials = () => {
         </div>
     )
 }
-
-export default Testimonials;

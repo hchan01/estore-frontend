@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 const CLIENT_ID = 'AVogwHUZXjOrYP9klBbaICZsfG7ZnjIc3lcxRA6yF8sXf_UiBIYiNfH1BcRnZCwuz44ES_MrFxr-n0RO';
 
-const PayPalButton = (props) => {
+export const PayPalButton = (props) => {
     const [sdkReady, setSdkReady] = useState(false);
 
     const addPaypalSdk = () => {
@@ -53,5 +53,3 @@ const PayPalButton = (props) => {
 
     return <Button {...props} createOrder={(data, actions) => createOrder(data, actions)} onApprove={(data, actions) => onApprove(data, actions)} />
 }
-
-export default PayPalButton;

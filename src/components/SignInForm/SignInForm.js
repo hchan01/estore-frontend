@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './styles.scss';
+import './SignInForm.scss';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { NavLink } from 'react-router-dom';
@@ -19,7 +19,7 @@ const schema = yup.object({
         .required('Please enter your password')
 });
 
-const SignInForm = () => {
+export const SignInForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -91,5 +91,3 @@ const SignInForm = () => {
         </div>
     )
 }
-
-export default SignInForm;

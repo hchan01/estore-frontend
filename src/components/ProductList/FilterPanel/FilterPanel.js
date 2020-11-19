@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './styles.scss';
+import './FilterPanel.scss';
 import { useDispatch } from 'react-redux';
 import { filterSetMax } from '../actions';
 import Form from 'react-bootstrap/Form';
@@ -9,7 +9,7 @@ import 'rc-slider/assets/index.css';
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range);
 
-const FilterPanel = ({ brands, max }) => {
+export const FilterPanel = ({ brands, max }) => {
     const dispatch = useDispatch();
 
     return (
@@ -51,5 +51,3 @@ const FilterPanel = ({ brands, max }) => {
         </Form>
     )
 }
-
-export default FilterPanel;

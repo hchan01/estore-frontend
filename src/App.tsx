@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 import { Console, Header, Footer } from './components';
-import { Routes } from './routes';
+import { Routes } from './routes/Routes';
 import CookieConsent from 'react-cookie-consent';
 import { NavLink } from 'react-router-dom';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.scss';
+import './Header.scss';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,7 +9,7 @@ import logo from '../../assets/images/logo.png';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 
-const Header = () => {
+export const Header = () => {
     const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
 
     return (
@@ -44,5 +44,3 @@ const Header = () => {
         </header>
     )
 }
-
-export default Header;

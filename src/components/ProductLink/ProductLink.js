@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const ProductLink = ({ children, product }) => (
+export const ProductLink = ({ children, product }) => (
     <NavLink to={{
         pathname: `/products/${product.slug}`,
         state: {
@@ -11,5 +11,3 @@ const ProductLink = ({ children, product }) => (
         { children }
     </NavLink>
 )
-
-export default ProductLink;

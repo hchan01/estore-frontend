@@ -16,7 +16,7 @@ import {
     PageNotFoundScreen
 } from '../screens';
 
-const Routes = () => (
+export const Routes = () => (
     <main>
         <ScrollToTop>
             <Switch>
@@ -36,5 +36,3 @@ const Routes = () => (
         </ScrollToTop>
     </main>
 )
-
-export default Routes;

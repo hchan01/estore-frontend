@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ProductCard } from './ProductCard';
+import { ProductCard } from './ProductCard/ProductCard';
 import { CubeSpinner } from 'react-spinners-kit';
-import { FilterPanel } from './FilterPanel';
+import { FilterPanel } from './FilterPanel/FilterPanel';
 import { getProducts, filterSetMax } from './actions';
 
-const ProductList = ({ filters }) => {
+export const ProductList = ({ filters }) => {
     const isLoading = useSelector(state => state.productList.loading);
     const brands = useSelector(state => state.productList.products.map(product => product.brand));
     const max = useSelector(state => {
@@ -58,5 +58,3 @@ const ProductList = ({ filters }) => {
                 </React.Fragment>
     )
 }
-
-export default ProductList;

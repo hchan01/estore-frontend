@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import './styles.scss';
+import './CartTable.scss';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
-import { ProductLink } from '../ProductLink';
+import { ProductLink } from '..';
 
-const CartTable = () => {
+export const CartTable = () => {
     const [items, setCart] = useState([]);
 
     useEffect(() => {
@@ -58,5 +58,3 @@ const CartTable = () => {
         </div>
     )
 }
-
-export default CartTable;

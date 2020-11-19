@@ -1,9 +1,9 @@
 import React from 'react';
-import './styles.scss';
-import { AddToCartButton } from '../../AddToCartButton';
-import { ProductLink } from '../../ProductLink';
+import './ProductCard.scss';
+import { AddToCartButton } from '../..';
+import { ProductLink } from '../..';
 
-const ProductCard = ({product}) => {
+export const ProductCard = ({product}) => {
     return (
         <div className="col-md-3">
             <div className="product-card">
@@ -24,5 +24,3 @@ const ProductCard = ({product}) => {
         </div>
     )
 }
-
-export default ProductCard;

@@ -1,9 +1,9 @@
 import React from 'react';
-import './styles.scss';
+import './PaymentMethodsBlock.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCcVisa, faCcMastercard, faCcAmex, faCcPaypal, faCcApplePay } from '@fortawesome/free-brands-svg-icons';
 
-const PaymentMethodsBlock = () => (
+export const PaymentMethodsBlock = () => (
     <div className="payment-methods">
         <FontAwesomeIcon icon={faCcVisa} size="2x" color="#212529" inverse className="payment-methods__icon" />
         <FontAwesomeIcon icon={faCcMastercard} size="2x" color="#212529" inverse className="payment-methods__icon" />
@@ -12,5 +12,3 @@ const PaymentMethodsBlock = () => (
         <FontAwesomeIcon icon={faCcApplePay} size="2x" color="#212529" inverse className="payment-methods__icon" />
     </div>
 )
-
-export default PaymentMethodsBlock;

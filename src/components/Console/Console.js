@@ -1,7 +1,7 @@
 import React from 'react';
-import './styles.scss';
+import './Console.scss';
 
-const Console = () => (
+export const Console = () => (
     <div className="container-fluid console">
         <div className="row">
             <div className="col-lg-4">DEMO SITE</div>
@@ -10,5 +10,3 @@ const Console = () => (
         </div>
     </div>
 )
-
-export default Console;

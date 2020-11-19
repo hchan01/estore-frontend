@@ -1,9 +1,9 @@
 import React from 'react';
-import './styles.scss';
+import './SocialButtonsBlock.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faInstagram, faPinterest } from '@fortawesome/free-brands-svg-icons';
 
-const SocialButtonsBlock = () => (
+export const SocialButtonsBlock = () => (
     <div className="social-buttons">
         <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" className="social-buttons__button">
             <FontAwesomeIcon icon={faFacebook} size="2x" color="#3B5999" />
@@ -19,5 +19,3 @@ const SocialButtonsBlock = () => (
         </a>
     </div>
 )
-
-export default SocialButtonsBlock;
