@@ -14,7 +14,7 @@ const ProductCard = ({product}) => {
                 </div>
                 <div className="product-card__details-box">
                     <ProductLink product={product}>
-                        <h3 className="product-card__title">{product.name}</h3>
+                        <h3 className="product-card__name">{product.name}</h3>
                         <span className="product-card__price">&#163;{product.unitPrice}</span>
                     </ProductLink>
 
