@@ -1,10 +1,6 @@
 import {
-    REGISTER_SUCCESS,
-    REGISTER_FAIL,
     LOGIN_SUCCESS,
-    LOGIN_FAIL,
-    LOGOUT,
-    SET_MESSAGE,
+    LOGIN_FAIL
 } from './types';
 import axios from 'axios';
 
