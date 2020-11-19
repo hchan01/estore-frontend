@@ -1,37 +1,31 @@
-@import "../../css/variables.scss";
-
-footer {
-    background-color: $color-grey-dark;
-    color: $color-grey-light;
-    padding: 30px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+.footer {
+    background-color: #0D0D0D;
+    border-top: 6px solid #1498d5;
+    bottom: 0px;
+    color: #DDDDDD;
     font-family: 'Roboto', sans-serif;
     letter-spacing: 1px;
-    border-top: 6px solid #1498d5;
+    padding: 30px;
+    position: absolute;
+    width: 100%;
 
-    & h4 {
+    &__heading {
         font-size: 1rem;
         font-weight: bold;
     }
 
-    & h5 {
-        font-size: 0.75rem;
-    }
-
-    & .nav-link {
-        color: $color-grey-light;
+    &__nav-link {
+        color: #DDDDDD;
+        font-family: 'Roboto', sans-serif;
         font-size: 0.8rem;
         font-weight: 200;
-        font-family: 'Roboto', sans-serif;
 
         &:hover {
-            color: $color-white;
+            color: #FFFFFF;
         }
     }
 
-    & .copyright {
+    &__copyright {
         font-size: 0.75rem;
     }
 }

@@ -2,19 +2,19 @@
 
 .add-to-cart {
     position: relative;
-    color: $color-white;
+    color: #FFFFFF;
     border: 0px;
     padding: 10px 30px;
     margin-top: 15px;
-    background: $color-grey;
+    background: #7E7E7E;
     border-radius: 30px;
     text-transform: uppercase;
     letter-spacing: 1px;
     outline: none !important;
 
     &:hover {
-        color: $color-white;
-        background: $color-blue;
+        color: #FFFFFF;
+        background: #1498D5;
         text-decoration: none;
     }
 }

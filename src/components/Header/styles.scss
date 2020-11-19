@@ -1,22 +1,24 @@
-@import "../../css/variables.scss";
-
-.main-header {
-    background-color: $color-grey-dark;
+.header {
+    background-color: #0D0D0D;
+    border-top: 4px solid #1498D5;
+    color: #DDDDDD;
     font-family: 'Poppins', sans-serif;
-    letter-spacing: 1px;
     font-size: 0.875rem;
-    color: $color-grey-light;
-    border-top: 4px solid #1498d5;
+    letter-spacing: 1px;
 
-    & .logo {
+    &__navbar {
+        position: static;
+    }
+
+    &__logo {
         width: 150px;
     }
 
-    & .nav-link {
-        color: $color-grey-light !important;
+    &__nav-link {
+        color: #DDDDDD !important;
 
         &:hover {
-            color: $color-white !important;
+            color: #FFFFFF !important;
         }
     }
 }

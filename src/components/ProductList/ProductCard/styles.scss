@@ -1,54 +1,43 @@
-@import '../../../css/variables';
-
 .product-card {
-    position: relative;
-    // background: #122936;
-    border-radius: 15px;
-    // width: 320px;
-    // height: 360px;
-    // overflow: hidden;
-    display: flex;
     align-items: center;
-    justify-content: center;
+    border-radius: 15px;
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    position: relative;
     transform: scale(0.8);
     transition: all 0.3s ease-in-out;
 
     &:hover {
         // background-color: #eee;
         transform: scale(1);
-        // cursor: pointer;
     }
 
     &__image {
         height: 200px;
-
-        &-box {
-            // border:1px solid black;
-        }
     }
 
     &__details-box {
-        display: flex;
-        justify-content: center;
         align-items: center;
+        display: flex;
         flex-direction: column;
-        text-align: center;
+        justify-content: center;
         margin-top: 16px;
+        text-align: center;
     }
 
-    &__title {
-        color: $color-black;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+    &__name {
+        color: #000000;
         font-size: 1rem;
         font-weight: bold;
-        text-align: center;
         height: 50px;
+        letter-spacing: 1px;
+        text-align: center;
+        text-transform: uppercase;
     }
 
     &__price {
-        color: $color-blue;
+        color: #1498D5;
         font-size: 1.5rem;
     }
 }
