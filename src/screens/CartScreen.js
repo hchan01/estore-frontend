@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { CartTable, CheckoutBreadcrumb } from '../components';
 
 const CartScreen = () => (
@@ -11,8 +10,6 @@ const CartScreen = () => (
         <h2>Your basket</h2>
 
         <CartTable />
-
-        <NavLink to={`/checkout/delivery`}>Proceed to checkout</NavLink>
     </div>
 )
 

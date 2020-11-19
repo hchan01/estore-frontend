@@ -31,23 +31,30 @@ const CartTable = () => {
     }, []);
 
     return (
-        <div className="cart">
-            {
-                items.map(item => 
-                    <div className="cart__item" key={item.id}>
-                        <div className="cart__column cart__image-box">
-                            <img src={item.image} className="cart__image" alt={item.name} />
-                        </div>
-                        <div className="cart__column">
-                            <ProductLink product={item}>{item.name}</ProductLink>
-                            {item.quantity}
-                        </div>
-                        <div className="cart__column">
-                        &#163;{item.totalPrice}
-                        </div>
-                    </div>
-                )
-            }
+        <div className="container cart">
+            <div className="row">
+                <div className="col-md-9">
+                    {
+                        items.map(item => 
+                            <div className="cart__item" key={item.id}>
+                                <div className="cart__column cart__image-box">
+                                    <img src={item.image} className="cart__image" alt={item.name} />
+                                </div>
+                                <div className="cart__column">
+                                    <ProductLink product={item}>{item.name}</ProductLink>
+                                    {item.quantity}
+                                </div>
+                                <div className="cart__column">
+                                    &#163;{item.totalPrice}
+                                </div>
+                            </div>
+                        )
+                    }
+                </div>
+                <div className="col-md-3">
+                    <NavLink to={`/checkout/delivery`}>Proceed to checkout</NavLink>
+                </div>
+            </div>
         </div>
     )
 }
