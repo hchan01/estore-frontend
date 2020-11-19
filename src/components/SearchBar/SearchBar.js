@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './styles.scss';
+import styles from './styles.module.css';
 import Autosuggest from 'react-autosuggest';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
@@ -52,11 +52,11 @@ const Search = () => {
     const renderSuggestion = suggestion => (
         <NavLink to={`/product/${suggestion.id}`}>
             <div>
-                <div className="react-autosuggest__suggestion-column">
-                    <span className="react-autosuggest__suggestion-name">{suggestion.name}</span>
+                <div className={styles.suggestionColumn}>
+                    <span className={styles.suggestionProductName}>{suggestion.name}</span>
                 </div>
-                <div className="react-autosuggest__suggestion-column">
-                    <img className="react-autosuggest__suggestion-img" src={suggestion.image} alt={suggestion.name} />
+                <div className={styles.suggestionColumn}>
+                    <img className={styles.suggestionProductImage} src={suggestion.image} alt={suggestion.name} />
                 </div>
             </div>
         </NavLink>
@@ -71,16 +71,20 @@ const Search = () => {
     };
 
     return (
-        <Autosuggest
-            suggestions={suggestions}
-            onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-            onSuggestionsClearRequested={onSuggestionsClearRequested}
-            onSuggestionSelected={onSuggestionSelected}
-            getSuggestionValue={getSuggestionValue}
-            renderSuggestion={renderSuggestion}
-            inputProps={inputProps}
-            focusInputOnSuggestionClick={false}
-        />
+        <React.Fragment>
+            <div className="search-bar__overlay"></div>
+            <Autosuggest
+                suggestions={suggestions}
+                onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+                onSuggestionsClearRequested={onSuggestionsClearRequested}
+                onSuggestionSelected={onSuggestionSelected}
+                getSuggestionValue={getSuggestionValue}
+                renderSuggestion={renderSuggestion}
+                inputProps={inputProps}
+                focusInputOnSuggestionClick={false}
+                theme={styles}
+            />
+        </React.Fragment>
     )
 }
 
