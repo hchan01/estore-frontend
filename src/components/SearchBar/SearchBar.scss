@@ -1,0 +1,117 @@
+.react-autosuggest {
+    &__container {
+        color: #EEEEEE;
+        font-weight: bold;
+        position: relative;
+        z-index: 10;
+    }
+
+    &__input {
+        background-color: #0D0D0D;
+        border: 1px solid #FFFFFF;;
+        border-radius: 20px;
+        color: #DDDDDD;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        font-weight: 300;
+        height: 40px;
+        padding: 0px 20px 0px 14px;
+        width: 280px;
+
+        &::placeholder {
+            color: #DDDDDD;
+        }
+
+        &--open {
+            border-bottom: 0px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+
+        &--focused {
+            outline: none;
+        }
+    }
+
+    &__suggestions-container {
+        &--open {
+            background-color: #0D0D0D;
+            border: 1px solid #FFFFFF;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;;
+            border-top: 0px;
+            display: block;
+            font-size: 0.875rem;
+            /* font-family: 'Open Sans', sans-serif; */
+            font-weight: 300;
+            position: absolute;
+            top: 40px;
+            width: 280px;
+            z-index: 2;
+        }
+    }
+
+    &__suggestions-list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__suggestion {
+        cursor: pointer;
+        height: 78px;
+        padding: 10px 20px;
+
+        &--first {
+            border-top: 0;
+        }
+
+        &:last-child {
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        &--highlighted {
+            background-color: #292929;
+        }
+    }
+
+    &__suggestion-column {
+        display: inline-block;
+        vertical-align: middle;
+
+        &:first-child {
+            width: calc(100% - 60px);
+        }
+
+        &:last-child {
+            width: 60px;
+        }
+    }
+
+    &__suggestion-product-name {
+        color: #FFFFFF;
+    }
+
+    &__suggestion-product-image {
+        width: 60px;
+    }
+
+    &__overlay {
+        background-color: rgba(0,0,0,.5);
+        bottom: 0px;
+        left: 0px;
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        transition: opacity 0.3s ease;
+        z-index: 5;
+    
+        &--active {
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
+}

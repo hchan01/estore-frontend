@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import styles from './styles.module.css';
+import './SearchBar.scss';
 import Autosuggest from 'react-autosuggest';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 
-const Search = () => {
+export const SearchBar = () => {
     const [suggestions, setSuggestions] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
+    const [active, setActive] = useState(false);
 
     const onSuggestionsFetchRequested = async ({ value }) => {
         let response = await axios.post(process.env.REACT_APP_API_URL, {
@@ -38,11 +39,11 @@ const Search = () => {
     };
 
     const onFocus = (event) => {
-        document.querySelector('.search-bar__overlay').classList.add('search-bar__overlay--active');
+        setActive(true);
     }
 
     const onBlur = (event) => {
-        document.querySelector('.search-bar__overlay').classList.remove('search-bar__overlay--active');
+        setActive(false);
     }
     
     const getSuggestionValue = (suggestion) => {
@@ -52,11 +53,11 @@ const Search = () => {
     const renderSuggestion = suggestion => (
         <NavLink to={`/product/${suggestion.id}`}>
             <div>
-                <div className={styles.suggestionColumn}>
-                    <span className={styles.suggestionProductName}>{suggestion.name}</span>
+                <div className="react-autosuggest__suggestion-column">
+                    <span className="react-autosuggest__suggestion-product-name">{suggestion.name}</span>
                 </div>
-                <div className={styles.suggestionColumn}>
-                    <img className={styles.suggestionProductImage} src={suggestion.image} alt={suggestion.name} />
+                <div className="react-autosuggest__suggestion-column">
+                    <img className="react-autosuggest__suggestion-product-image" src={suggestion.image} alt={suggestion.name} />
                 </div>
             </div>
         </NavLink>
@@ -72,7 +73,7 @@ const Search = () => {
 
     return (
         <React.Fragment>
-            <div className="search-bar__overlay"></div>
+            <div className={`react-autosuggest__overlay ${active ? 'react-autosuggest__overlay--active' : ''}`}></div>
             <Autosuggest
                 suggestions={suggestions}
                 onSuggestionsFetchRequested={onSuggestionsFetchRequested}
@@ -82,10 +83,7 @@ const Search = () => {
                 renderSuggestion={renderSuggestion}
                 inputProps={inputProps}
                 focusInputOnSuggestionClick={false}
-                theme={styles}
             />
         </React.Fragment>
     )
 }
-
-export default Search;
