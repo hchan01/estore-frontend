@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PrivacyPolicyScreen = () => (
+export const PrivacyPolicyScreen = () => (
     <div className="container">
         <h1>Privacy Policy</h1>
 
@@ -45,5 +45,3 @@ const PrivacyPolicyScreen = () => (
         <p>If you have any questions about this Privacy Policy, please contact us.</p>
     </div>
 )
-
-export default PrivacyPolicyScreen;

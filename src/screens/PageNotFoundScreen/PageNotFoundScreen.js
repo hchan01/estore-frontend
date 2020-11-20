@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const PageNotFoundScreen = () => {
+export const PageNotFoundScreen = () => {
     return (
         <div className="container text-center">
             <h1>404</h1>
@@ -11,5 +11,3 @@ const PageNotFoundScreen = () => {
         </div>
     )
 }
-
-export default PageNotFoundScreen;

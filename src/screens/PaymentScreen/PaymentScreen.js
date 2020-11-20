@@ -1,7 +1,7 @@
 import React from 'react';
-import { CheckoutBreadcrumb, PayPalButton } from '../components';
+import { CheckoutBreadcrumb, PayPalButton } from '../../components';
 
-const PaymentScreen = (props) => (
+export const PaymentScreen = (props) => (
     <div className="container">
         <div className="row">
             <CheckoutBreadcrumb step1 step2 step3 />
@@ -9,5 +9,3 @@ const PaymentScreen = (props) => (
         <PayPalButton onSuccess={e => { props.history.push('/checkout/order/1'); }} />
     </div>
 )
-
-export default PaymentScreen;

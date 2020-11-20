@@ -3,9 +3,9 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/scss/image-gallery.scss';
-import { AddToCartButton } from '../components';
+import { AddToCartButton } from '../../components';
 
-const ProductScreen = (props) => {
+export const ProductScreen = (props) => {
     let productId = props.location.state.productId;
 
     const [product, setProduct] = useState({ images: [] });
@@ -69,5 +69,3 @@ const ProductScreen = (props) => {
         </div>
     )
 }
-
-export default ProductScreen;

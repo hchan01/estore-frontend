@@ -1,8 +1,8 @@
 import React from 'react';
-import { CheckoutBreadcrumb } from '../components';
+import { CheckoutBreadcrumb } from '../../components';
 import { NavLink } from 'react-router-dom';
 
-const DeliveryScreen = () => (
+export const DeliveryScreen = () => (
     <div className="container">
         <div className="row">
             <CheckoutBreadcrumb step1 step2 />
@@ -12,5 +12,3 @@ const DeliveryScreen = () => (
         <NavLink to={`/checkout/payment`}>Pay now</NavLink>
     </div>
 )
-
-export default DeliveryScreen

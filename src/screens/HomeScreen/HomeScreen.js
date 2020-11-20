@@ -1,8 +1,8 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-import { Testimonials } from '../components';
+import { Testimonials } from '../../components';
 
-const HomeScreen = () => (
+export const HomeScreen = () => (
     <React.Fragment>
         <div className="container-fluid">
             <div className="row">
@@ -28,5 +28,3 @@ const HomeScreen = () => (
         </div>
     </React.Fragment>
 )
-
-export default HomeScreen;

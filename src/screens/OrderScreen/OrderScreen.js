@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { CheckoutBreadcrumb } from '../components';
+import { CheckoutBreadcrumb } from '../../components';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-const OrderScreen = () => {
+export const OrderScreen = () => {
     let { orderId } = useParams();
 
     const [order, setOrder] = useState({
@@ -55,5 +55,3 @@ const OrderScreen = () => {
         </div>
     )
 }
-
-export default OrderScreen;

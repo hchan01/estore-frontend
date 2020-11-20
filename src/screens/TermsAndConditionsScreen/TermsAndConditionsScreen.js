@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const TermsAndConditionsScreen = () => (
+export const TermsAndConditionsScreen = () => (
     <div className="container">
         <h1>Terms and Conditions</h1>
 
@@ -87,5 +87,3 @@ const TermsAndConditionsScreen = () => (
         <p>AS WITH THE PURCHASE OF A PRODUCT OR SERVICE THROUGH ANY MEDIUM OR IN ANY ENVIRONMENT, YOU SHOULD USE YOUR BEST JUDGMENT AND EXERCISE CAUTION WHERE APPROPRIATE.</p>
     </div>
 )
-
-export default TermsAndConditionsScreen;

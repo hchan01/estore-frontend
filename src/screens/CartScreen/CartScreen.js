@@ -1,7 +1,7 @@
 import React from 'react';
-import { CartTable, CheckoutBreadcrumb } from '../components';
+import { CartTable, CheckoutBreadcrumb } from '../../components';
 
-const CartScreen = () => (
+export const CartScreen = () => (
     <div className="container">
         <div className="row">
             <CheckoutBreadcrumb step1 />
@@ -12,5 +12,3 @@ const CartScreen = () => (
         <CartTable />
     </div>
 )
-
-export default CartScreen;
