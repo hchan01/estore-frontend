@@ -1,8 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { ProductList } from '../components';
+import { ProductList } from '../../components';
 
-const ProductListingScreen = () => {
+export const ProductListingScreen = () => {
     let { categoryId } = useParams();
 
     return (
@@ -13,5 +13,3 @@ const ProductListingScreen = () => {
         </div>
     )
 }
-
-export default ProductListingScreen;
