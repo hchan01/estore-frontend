@@ -12,19 +12,23 @@ export const CartTable = () => {
             let response = await axios.post(process.env.REACT_APP_API_URL, {
                 query: `
                     {
-                        cart {
-                            id
-                            name
-                            quantity
-                            unitPrice
-                            image
-                            slug
-                            totalPrice
+                        cart( where:{ id: 1 } ) {
+                            cartLineItem {
+                                id
+                                quantity
+                                product {
+                                    id
+                                    name
+                                    unitPrice
+                                    image
+                                    slug
+                                }
+                            }
                         }
                     }
                 `
             });
-            setCart(response.data.data.cart);
+            setCart(response.data.data.cart.cartLineItem);
         }
 
         fetchData();
@@ -36,12 +40,12 @@ export const CartTable = () => {
                 <div className="col-md-9">
                     {
                         items.map(item => 
-                            <div className="cart__item" key={item.id}>
+                            <div className="cart__item" key={item.product.id}>
                                 <div className="cart__column cart__image-box">
-                                    <img src={item.image} className="cart__image" alt={item.name} />
+                                    <img src={item.product.image} className="cart__image" alt={item.product.name} />
                                 </div>
                                 <div className="cart__column">
-                                    <ProductLink product={item}>{item.name}</ProductLink>
+                                    <ProductLink product={item.product}>{item.product.name}</ProductLink>
                                     {item.quantity}
                                 </div>
                                 <div className="cart__column">

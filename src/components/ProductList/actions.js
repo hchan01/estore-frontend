@@ -8,7 +8,7 @@ export const getProducts = (categoryId) => async (dispatch) => {
         const { data } = await axios.post(process.env.REACT_APP_API_URL, {
             query: `
                 {
-                    products(categoryId: ${categoryId}) {
+                    products( where: { categoryId: { equals: ${categoryId} } } ) {
                         id
                         name
                         brand

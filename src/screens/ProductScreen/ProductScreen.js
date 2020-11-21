@@ -15,7 +15,7 @@ export const ProductScreen = (props) => {
             let response = await axios.post(process.env.REACT_APP_API_URL, {
                 query: `
                     {
-                        product(productId: ${productId}) {
+                        product(where: { id: ${productId} }) {
                             id
                             name
                             unitPrice

@@ -10,6 +10,13 @@ export const addToCart = (productId, quantity) => async (dispatch) => {
             mutation {
                 addToCart(productId: ${productId}, quantity: ${quantity}) {
                     id
+                    cartLineItem {
+                        product {
+                            id
+                            name
+                            unitPrice
+                        }
+                    }
                 }
             }
         `
