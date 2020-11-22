@@ -49,7 +49,7 @@ export const Testimonials = () => {
                 navigation
             >
                 <SwiperSlide>
-                    <div className="card">
+                    <div className="review-card">
                         <div className="layer"></div>
                         <div className="content">
                             <p>Great service from start to finish. Easy to find the product. Delivery tracking available. Very pleased with my product. Exceeded my expectations</p>

@@ -25,7 +25,7 @@
     background-image: none !important;
 }
 
-.card {
+.review-card {
     position: relative;
     width: 100%;
     margin: 0 auto;
@@ -36,7 +36,7 @@
     height: 250px;
 }
 
-.card .layer {
+.review-card .layer {
     position: absolute;
     top: calc(100% - 2px);
     left: 0;
@@ -47,28 +47,28 @@
     transition: 0.5s;
 }
 
-.card:hover .layer {
+.review-card:hover .layer {
     top: 0;
 }
 
-.card .content {
+.review-card .content {
     position: relative;
     z-index: 2;
 }
 
-.card .content p {
+.review-card .content p {
     font-size: 18px;
     line-height: 24px;
     margin-bottom: 20px;
     color: $color-white;
 }
 
-.card .content h4 {
+.review-card .content h4 {
     font-size: 18px;
     color: #03a9f4;
     transition: 0.5s;
 }
 
-.card:hover .content h4 {
+.review-card:hover .content h4 {
     color: $color-white;
 }
