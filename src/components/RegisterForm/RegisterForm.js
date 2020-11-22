@@ -7,7 +7,7 @@ import Alert from 'react-bootstrap/Alert';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { gql, useMutation } from '@apollo/client';
-import { LOGIN_SUCCESS } from '../../redux/types'
+import { LOGIN_SUCCESS } from '../../redux/types';
 
 const schema = yup.object({
     email: yup.string()
