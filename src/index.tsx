@@ -9,10 +9,18 @@ import store from './redux/store';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
+
+const client = new ApolloClient({
+    uri: process.env.REACT_APP_API_URL,
+    cache: new InMemoryCache()
+});
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <ApolloProvider client={client}>
+            <App />
+        </ApolloProvider>
     </Provider>,
     document.getElementById('root')
 );
