@@ -5,6 +5,7 @@ import {
     HomeScreen,
     SignInScreen,
     RegisterScreen,
+    AccountScreen,
     ProductListingScreen,
     ProductScreen,
     CartScreen,
@@ -13,16 +14,23 @@ import {
     OrderScreen,
     PrivacyPolicyScreen,
     TermsAndConditionsScreen,
-    PageNotFoundScreen
+    PageNotFoundScreen,
+    UserDetailsScreen,
+    UserAddressBookScreen,
+    UserOrdersScreen
 } from '../screens';
 
 export const Routes = () => (
-    <main>
+    <main className="pt-5">
         <ScrollToTop>
             <Switch>
                 <Route exact path="/" component={HomeScreen} />
                 <Route exact path="/sign-in" component={SignInScreen} />
                 <Route exact path="/register" component={RegisterScreen} />
+                <Route exact path="/account" component={AccountScreen} />
+                <Route exact path="/account/details" component={UserDetailsScreen} />
+                <Route exact path="/account/address-book" component={UserAddressBookScreen} />
+                <Route exact path="/account/orders" component={UserOrdersScreen} />
                 <Route exact path="/category/:categoryId" component={ProductListingScreen} />
                 <Route exact path="/products/:productId" component={ProductScreen} />
                 <Route exact path="/cart" component={CartScreen} />

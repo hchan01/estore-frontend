@@ -4,7 +4,7 @@ import { Testimonials } from '../../components';
 
 export const HomeScreen = () => (
     <React.Fragment>
-        <div className="container-fluid">
+        <div className="container-fluid" style={{ marginTop: '-3rem' }}>
             <div className="row">
                 <Carousel className="mx-auto">
                     <Carousel.Item>
