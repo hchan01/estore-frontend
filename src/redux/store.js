@@ -1,6 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { authReducer } from '../components/SignInForm/reducers';
+import { authReducer } from './reducers';
 import { productListReducer, productListFilterReducer } from '../components/ProductList/reducers';
 import { cartReducer } from '../components/AddToCartButton/reducers';
 

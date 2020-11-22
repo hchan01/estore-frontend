@@ -11,7 +11,7 @@ const initialState = {
     isLoggedIn: false
 };
     
-const authReducer = (state = initialState, action) => {
+export const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOGIN_SUCCESS:
             return {
@@ -22,7 +22,3 @@ const authReducer = (state = initialState, action) => {
             return state;
     }
 };
-
-export {
-    authReducer
-}
