@@ -1,45 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './CartTable.scss';
-import axios from 'axios';
+import { gql, useQuery } from '@apollo/client';
 import { NavLink } from 'react-router-dom';
 import { ProductLink } from '..';
 
 export const CartTable = () => {
-    const [items, setCart] = useState([]);
-
-    useEffect(() => {
-        async function fetchData() {
-            let response = await axios.post(process.env.REACT_APP_API_URL, {
-                query: `
-                    {
-                        cart( where:{ id: 1 } ) {
-                            cartLineItem {
-                                id
-                                quantity
-                                product {
-                                    id
-                                    name
-                                    unitPrice
-                                    image
-                                    slug
-                                }
-                            }
-                        }
+    const { data } = useQuery(gql`
+        query {
+            cart( where:{ id: 1 } ) {
+                cartLineItem {
+                    id
+                    quantity
+                    product {
+                        id
+                        name
+                        unitPrice
+                        image
+                        slug
                     }
-                `
-            });
-            setCart(response.data.data.cart.cartLineItem);
+                }
+            }
         }
-
-        fetchData();
-    }, []);
+    `);
 
     return (
         <div className="container cart">
             <div className="row">
                 <div className="col-md-9">
                     {
-                        items.map(item => 
+                        data && data.cart.cartLineItem.map(item => 
                             <div className="cart__item" key={item.product.id}>
                                 <div className="cart__column cart__image-box">
                                     <img src={item.product.image} className="cart__image" alt={item.product.name} />

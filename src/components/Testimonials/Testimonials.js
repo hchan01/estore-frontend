@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './Testimonials.scss';
 import 'swiper/components/effect-coverflow/effect-coverflow.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -7,32 +7,21 @@ import 'swiper/swiper-bundle.min.css';
 import 'swiper/components/navigation/navigation.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuoteRight } from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
+import { gql, useQuery } from '@apollo/client';
 
 SwiperCore.use([Autoplay]);
 
 export const Testimonials = () => {
-    const [testimonials, setTestimonials] = useState([]);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const { data } = await axios.post(process.env.REACT_APP_API_URL, {
-                query: `
-                    {
-                        testimonials {
-                            id
-                            firstName
-                            lastName
-                            review
-                        }
-                    }
-                `
-            });
-            setTestimonials(data.data.testimonials);
+    const { data } = useQuery(gql`
+        query {
+            testimonials {
+                id
+                firstName
+                lastName
+                review
+            }
         }
-
-        fetchData();
-    }, []);
+    `);
 
     return (
         <div className="testimonials mt-5 mb-5">
@@ -57,7 +46,7 @@ export const Testimonials = () => {
                 }}
             >
                 {
-                    testimonials.map(testimonial => 
+                    data && data.testimonials.map(testimonial => 
                         <SwiperSlide>
                             <div className="review-card">
                                 <div className="layer"></div>

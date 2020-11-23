@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './SearchBar.scss';
 import Autosuggest from 'react-autosuggest';
-import axios from 'axios';
+import { gql, useLazyQuery } from '@apollo/client';
 import { NavLink } from 'react-router-dom';
 
 export const SearchBar = () => {
@@ -9,21 +9,27 @@ export const SearchBar = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [active, setActive] = useState(false);
 
+    const [getSuggestions] = useLazyQuery(gql`
+        query Search($searchTerm: String!) {
+            search(searchTerm: $searchTerm) {
+                id
+                name
+                image
+                categoryId
+            }
+        }
+    `, {
+        onCompleted: (data) => {
+            setSuggestions(data.search);
+        }
+    });
+
     const onSuggestionsFetchRequested = async ({ value }) => {
-        let response = await axios.post(process.env.REACT_APP_API_URL, {
-            query: `
-                {
-                    search(searchTerm: "${value}") {
-                        id
-                        name
-                        image
-                        categoryId
-                    }
-                }
-            `
+        getSuggestions({
+            variables: {
+                searchTerm: value
+            }
         });
-    
-        setSuggestions(response.data.data.search);
     }
 
     const onSuggestionsClearRequested = () => {
