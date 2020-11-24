@@ -1,24 +1,16 @@
 import React, { useState } from 'react';
 import './SearchBar.scss';
 import Autosuggest from 'react-autosuggest';
-import { gql, useLazyQuery } from '@apollo/client';
+import { useLazyQuery } from '@apollo/client';
 import { NavLink } from 'react-router-dom';
+import { SEARCH } from './queries';
 
 export const SearchBar = () => {
     const [suggestions, setSuggestions] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [active, setActive] = useState(false);
 
-    const [getSuggestions] = useLazyQuery(gql`
-        query Search($searchTerm: String!) {
-            search(searchTerm: $searchTerm) {
-                id
-                name
-                image
-                categoryId
-            }
-        }
-    `, {
+    const [getSuggestions] = useLazyQuery(SEARCH, {
         onCompleted: (data) => {
             setSuggestions(data.search);
         }

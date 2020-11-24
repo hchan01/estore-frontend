@@ -4,14 +4,13 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
 import { NavLink } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLock, faUser } from '@fortawesome/free-solid-svg-icons';
-import { useDispatch } from 'react-redux';
-import { gql, useMutation } from '@apollo/client';
-import { LOGIN_SUCCESS } from '../../redux/types';
+import { useMutation } from '@apollo/client';
+import { IS_LOGGED_IN } from '../../queries';
 import { useHistory } from 'react-router-dom';
 import { Formik } from 'formik';
 import * as yup from 'yup';
+import { cache } from '../../cache';
+import { USER_SIGNIN } from './queries';
 
 const schema = yup.object({
     email: yup.string()
@@ -22,17 +21,10 @@ const schema = yup.object({
 });
 
 export const SignInForm = () => {
-    const dispatch = useDispatch();
     const history = useHistory();
     const [incorrectDetails, setIncorrectDetails] = useState(false);
 
-    const [login] = useMutation(gql`
-        mutation Login($email: String!, $password: String!) {
-            login(email: $email, password: $password) {
-                token
-            }
-        }
-    `);
+    const [login] = useMutation(USER_SIGNIN);
 
     return (
         <div className="container">
@@ -54,13 +46,22 @@ export const SignInForm = () => {
                             }
                         });
 
-                        dispatch({ type: LOGIN_SUCCESS });
+                        cache.writeQuery({
+                            query: IS_LOGGED_IN,
+                            data: {
+                                isLoggedIn: true
+                            }
+                        });
+
+                        localStorage.setItem('isLoggedIn', 'true');
+
                         history.push('/');
                     } catch(error) {
                         switch (error.message) {
                             case 'INCORRECT_DETAILS':
                                 setIncorrectDetails(true);
                                 break;
+                            default:
                         }
                     }
                 }}
@@ -88,7 +89,6 @@ export const SignInForm = () => {
                                 onChange={handleChange}
                                 isInvalid={!!errors.email}
                             />
-                            {/* <FontAwesomeIcon icon={faUser} className="signin__icon" /> */}
                             <Form.Control.Feedback type="invalid">
                                 {errors.email}
                             </Form.Control.Feedback>
@@ -101,7 +101,6 @@ export const SignInForm = () => {
                                 onChange={handleChange}
                                 isInvalid={!!errors.password}
                             />
-                            {/* <FontAwesomeIcon icon={faLock} className="signin__icon" /> */}
                             <Form.Control.Feedback type="invalid">
                                 {errors.password}
                             </Form.Control.Feedback>

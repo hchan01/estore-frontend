@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import './RegisterForm.scss';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
 import { Formik } from 'formik';
 import * as yup from 'yup';
-import { gql, useMutation } from '@apollo/client';
-import { LOGIN_SUCCESS } from '../../redux/types';
+import { useMutation } from '@apollo/client';
+import { IS_LOGGED_IN } from '../../queries';
+import { cache } from '../../cache';
+import { USER_REGISTER } from './queries';
 
 const schema = yup.object({
     email: yup.string()
@@ -20,19 +21,10 @@ const schema = yup.object({
 });
 
 export const RegisterForm = () => {
-    const dispatch = useDispatch();
     const [registerSuccess, setRegisterSuccess] = useState(false);
     const [emailTaken, setEmailTaken] = useState(false);
 
-    const [createUser] = useMutation(gql`
-        mutation CreateUser($email: String!, $password: String!) {
-            createUser(email: $email, password: $password) {
-                id
-                email
-                token
-            }
-        }
-    `);
+    const [createUser] = useMutation(USER_REGISTER);
 
     return (
         <div className="container text-center">
@@ -66,12 +58,20 @@ export const RegisterForm = () => {
                             setEmailTaken(false);
                             setRegisterSuccess(true);
 
-                            dispatch({ type: LOGIN_SUCCESS });
+                            cache.writeQuery({
+                                query: IS_LOGGED_IN,
+                                data: {
+                                    isLoggedIn: true
+                                }
+                            });
+    
+                            localStorage.setItem('isLoggedIn', 'true');
                         } catch(error) {
                             switch (error.message) {
                                 case 'EMAIL_TAKEN':
                                     setEmailTaken(true);
                                     break;
+                                default:
                             }
                         }
                     }}

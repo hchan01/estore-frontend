@@ -1,6 +1,7 @@
 export * from './HomeScreen/HomeScreen';
 export * from './SignInScreen/SignInScreen';
 export * from './RegisterScreen/RegisterScreen';
+export * from './AccountScreen/AccountScreen';
 export * from './ProductListingScreen/ProductListingScreen';
 export * from './ProductScreen/ProductScreen';
 export * from './CartScreen/CartScreen';
@@ -10,3 +11,6 @@ export * from './OrderScreen/OrderScreen';
 export * from './PrivacyPolicyScreen/PrivacyPolicyScreen';
 export * from './TermsAndConditionsScreen/TermsAndConditionsScreen';
 export * from './PageNotFoundScreen/PageNotFoundScreen';
+export * from './UserDetailsScreen/UserDetailsScreen';
+export * from './UserAddressBookScreen/UserAddressBookScreen';
+export * from './UserOrdersScreen/UserOrdersScreen';

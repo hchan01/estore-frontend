@@ -1,27 +1,15 @@
 import React from 'react';
 import './CartTable.scss';
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { NavLink } from 'react-router-dom';
 import { ProductLink } from '..';
+import { CART_FETCH } from './queries';
 
 export const CartTable = () => {
-    const { data } = useQuery(gql`
-        query {
-            cart( where:{ id: 1 } ) {
-                cartLineItem {
-                    id
-                    quantity
-                    product {
-                        id
-                        name
-                        unitPrice
-                        image
-                        slug
-                    }
-                }
-            }
-        }
-    `);
+    const { data } = useQuery(CART_FETCH, {
+        variables: { cartId: 1 },
+        fetchPolicy: 'network-only'
+    });
 
     return (
         <div className="container cart">

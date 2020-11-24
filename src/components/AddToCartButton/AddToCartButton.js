@@ -1,12 +1,12 @@
 import React from 'react';
 import './AddToCartButton.scss';
-import { useDispatch } from 'react-redux';
-import { addToCart } from './actions';
+import { useMutation } from '@apollo/client';
+import { CART_ADD_ITEM } from './queries';
 
 export const AddToCartButton = ({ productId, quantity }) => {
-    const dispatch = useDispatch();
+    const [addToCart] = useMutation(CART_ADD_ITEM);
     
     return (
-        <button className="add-to-cart" onClick={e => dispatch(addToCart(productId, quantity)) }>Add to Cart</button>
+        <button className="add-to-cart" onClick={async () => await addToCart({ variables: { productId, quantity } })}>Add to Cart</button>
     )
 }
