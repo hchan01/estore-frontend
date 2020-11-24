@@ -1,7 +1,7 @@
 import React from 'react';
 import './ProductCard.scss';
-import { AddToCartButton } from '../..';
-import { ProductLink } from '../..';
+import { AddToCartButton } from '../../components';
+import { ProductLink } from '../../components';
 
 export const ProductCard = ({product}) => {
     return (

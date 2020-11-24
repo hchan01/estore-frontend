@@ -40,7 +40,7 @@ export const Footer = () => (
             </div>
             <div className="row mt-5 pt-2 border-top no-gutters">
                 <div className="col-sm-4">
-                    <span className="footer__copyright">&#169; FusionTech 2020</span>
+                    <span className="footer__copyright">&#169; {process.env.REACT_APP_BRAND} 2020</span>
                 </div>
                 <div className="col-sm-8 text-left text-sm-right mt-3 mt-sm-0">
                     <PaymentMethodsBlock />

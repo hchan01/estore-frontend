@@ -1,16 +1,17 @@
 import React from 'react';
 import './Header.scss';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { SearchBar } from '..';
 import logo from '../../assets/images/logo.png';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import { useQuery } from '@apollo/client';
+import { IS_LOGGED_IN } from '../../queries';
 
 export const Header = () => {
-    const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+    const { data } = useQuery(IS_LOGGED_IN);
 
     return (
         <header className="header">
@@ -25,17 +26,17 @@ export const Header = () => {
                     <Nav>
                         <SearchBar />
                         {
-                            isLoggedIn
+                            data.isLoggedIn
                             ?
-                            <Nav.Link as={NavLink} exact to={ { pathname: '/account', state: { prevPath: window.location.pathname } } } className="pl-0 pl-sm-4" className="header__nav-link" activeClassName="active">
-                                <FontAwesomeIcon icon={faUser} />
-                            </Nav.Link>
-                            :
-                            <Nav.Link as={NavLink} exact to={ { pathname: '/sign-in', state: { prevPath: window.location.pathname } } } className="pl-0 pl-sm-4" className="header__nav-link" activeClassName="active">
+                            <Nav.Link as={NavLink} exact to={ { pathname: '/account', state: { prevPath: window.location.pathname } } } className="pl-0 pl-sm-4 header__nav-link" activeClassName="active">
                                 <FontAwesomeIcon icon={faUser} /> Account
                             </Nav.Link>
+                            :
+                            <Nav.Link as={NavLink} exact to={ { pathname: '/sign-in', state: { prevPath: window.location.pathname } } } className="pl-0 pl-sm-4 header__nav-link" activeClassName="active">
+                                <FontAwesomeIcon icon={faUser} /> Sign In
+                            </Nav.Link>
                         }
-                        <Nav.Link as={NavLink} exact to="/cart" className="nav-item nav-link" className="header__nav-link" activeClassName="active">
+                        <Nav.Link as={NavLink} exact to="/cart" className="nav-item nav-link header__nav-link" activeClassName="active">
                             <FontAwesomeIcon icon={faShoppingCart} /> Cart
                         </Nav.Link>
                     </Nav>

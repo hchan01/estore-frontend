@@ -4,16 +4,29 @@ import 'core-js';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import store from './redux/store';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ApolloProvider, ApolloClient } from '@apollo/client';
+import { cache } from './cache';
+import { IS_LOGGED_IN } from './queries';
+
+const client = new ApolloClient({
+    uri: process.env.REACT_APP_API_URL,
+    cache
+});
+
+cache.writeQuery({
+    query: IS_LOGGED_IN,
+    data: {
+        isLoggedIn: !!localStorage.getItem('isLoggedIn')
+    }
+});
 
 ReactDOM.render(
-    <Provider store={store}>
+    <ApolloProvider client={client}>
         <App />
-    </Provider>,
+    </ApolloProvider>,
     document.getElementById('root')
 );
 
