@@ -31,7 +31,9 @@ export const Routes = () => (
                 <Route exact path="/account/details" component={UserDetailsScreen} />
                 <Route exact path="/account/address-book" component={UserAddressBookScreen} />
                 <Route exact path="/account/orders" component={UserOrdersScreen} />
-                <Route exact path="/category/:categoryId" component={ProductListingScreen} />
+                <Route exact path="/category/:categoryId" render={(props) => 
+                    <ProductListingScreen key={props.match.params.categoryId} {...props} />
+                } />
                 <Route exact path="/products/:productId" component={ProductScreen} />
                 <Route exact path="/cart" component={CartScreen} />
                 <Route exact path="/checkout/delivery" component={DeliveryScreen} />
